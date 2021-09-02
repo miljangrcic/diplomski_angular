@@ -1,0 +1,37 @@
+ul {
+    display: inline-block;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    list-style-type: none;
+    z-index: 100;
+}
+
+li {
+    padding: 5px;
+    margin: 5px;
+}
+li > button:first-child {
+    margin-left: auto;
+}
+li > * {
+    display: block;
+    margin: 2px 0;
+    padding: 2px;
+}
+
+.success {
+    background-color: #4BB543 !important;
+    color: white !important;
+}
+
+.info {
+    background-color: #2196F3 !important;
+    color: white !important;
+}
+
+.warning {
+    background-color: red;
+    color: white !important;
+
+}

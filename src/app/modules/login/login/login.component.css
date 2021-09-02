@@ -1,0 +1,17 @@
+form {
+    max-width: 500px;
+    box-shadow: 0 0 3px black;
+    margin: 20px auto 0 auto;
+    padding: 30px;
+}
+
+.mat-form-field {
+    display: block;
+}
+
+.mat-button {
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    padding: 10px 0;
+}

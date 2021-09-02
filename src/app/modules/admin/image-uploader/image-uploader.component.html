@@ -1,0 +1,28 @@
+<input 
+    id="file-input"
+    #fileInput 
+    (change)="onFileSelected($event.target.files)" 
+    type="file" 
+    accept="image/jpeg, image/png"
+>
+
+
+<img 
+    id="image-preview"
+    *ngIf="imagePreviewURL"
+    [src]="imagePreviewURL" 
+>
+
+<p id="error-message">{{errorMessage}}</p>
+
+
+<button 
+    id="select-btn"
+    (click)="fileInput.click()" 
+    mat-flat-button 
+    color="primary" 
+    type="button"
+>
+    {{imagePreviewURL ? 'Izaberi novu' : 'Izaberi'}}
+</button>
+

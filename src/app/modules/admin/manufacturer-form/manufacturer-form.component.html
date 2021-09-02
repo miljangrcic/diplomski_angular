@@ -1,0 +1,88 @@
+<form id="test" [formGroup]="manufacturerForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field>
+        <mat-label>Naziv</mat-label>
+        <input matInput formControlName="name">
+        <mat-error *ngIf="name.hasError('required')">Naziv je obavezan</mat-error>
+        <mat-error *ngIf="name.hasError('maxlength')">Naziv ne sme biti duzi od 50 karaktera</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>Opis</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+
+    <mat-label>Logo</mat-label>
+    <app-image-uploader 
+        [imagePreviewURL]="logoURL" 
+        (newImageChosen)="setNewLogoImage($event)"
+    >
+    </app-image-uploader>
+    <mat-error *ngIf="logoImageFile.hasError('required')">Logo je obavezan</mat-error>
+
+
+    <mat-label>Banner</mat-label>
+    <app-image-uploader 
+        [imagePreviewURL]="bannerURL" 
+        (newImageChosen)="setNewBannerImage($event)"
+    >
+    </app-image-uploader>
+    <mat-error *ngIf="bannerImageFile.hasError('required')">Banner je obavezan</mat-error>
+
+    
+    <mat-form-field>
+        <mat-label>Broj telefona</mat-label>
+        <input matInput formControlName="phone">
+        <mat-error *ngIf="phone.hasError('required')">Telefon je obavezan</mat-error>
+        <mat-error *ngIf="address.hasError('required')">Telefon ne sme biti duzi od 50 karaktera</mat-error>
+    </mat-form-field>
+
+    
+    <mat-form-field>
+        <mat-label>Adresa</mat-label>
+        <input matInput formControlName="address">
+        <mat-error *ngIf="address.hasError('required')">Adresa je obavezna</mat-error>
+        <mat-error *ngIf="address.hasError('maxlength')">Adresa ne sme biti duzi od 50 karaktera</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="email.hasError('required')">Email je obavezan</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>Fax</mat-label>
+        <input matInput formControlName="fax">
+        <mat-error *ngIf="fax.hasError('maxlength')">Fax ne sme biti duzi od 50 karaktera</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Website</mat-label>
+        <input matInput formControlName="website">
+        <mat-error *ngIf="website.hasError('maxlength')">Website ne sme biti duzi od 50 karaktera</mat-error>
+    </mat-form-field>
+
+
+    <button 
+        [disabled]="manufacturerForm.invalid" 
+        mat-flat-button
+        color="primary">
+        Potvrdi
+    </button>
+
+
+    <a 
+        [routerLink]="['../']"
+        mat-flat-button 
+        type="button" 
+        color="warn">
+        Otkaži
+    </a>
+
+    
+</form>

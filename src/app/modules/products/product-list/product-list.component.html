@@ -1,0 +1,13 @@
+<div *ngIf="products">
+
+    <mat-card *ngFor="let product of products" (click)="productClick.emit(product.productID)">
+        <mat-card-title>{{product.name}}</mat-card-title>
+        <img mat-card-lg-image [src]="product.imageURL">
+        <span>{{product.price | currency : 'RSD' : 'code' : '1.2-2' }}</span>
+    </mat-card>
+
+    <p *ngIf="!products.length">
+        Nema proizvoda za zadati kriterijum
+    </p>
+
+</div>

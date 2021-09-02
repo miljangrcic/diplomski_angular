@@ -1,0 +1,32 @@
+<a class="neutral-button" mat-button [routerLink]="['../']">Nazad na listu proizvoda</a>
+
+<mat-card *ngIf="product$ | async as product">
+
+    <mat-card-title>{{product.name}}</mat-card-title>
+
+    <img [src]="product.imageURL">
+
+    <ul>
+
+        <li>Barkod: {{product.eanCode}}</li>
+
+        <li>Proizvođač: 
+            <a 
+                [routerLink]="['/proizvodjaci', product.manufacturerID]"
+                mat-button
+                class="neutral-outlined-button"> 
+                {{product.manufacturer}}
+            </a>
+        </li>
+
+        <li>Kategorija: {{product.category}}</li>
+
+        <li>Cena: {{product.price}},00 RSD</li>
+
+        <li>Zapremina: {{product.volume}}</li>
+
+        <li>Ambalaža: {{product.packagingMaterial}}</li>
+
+    </ul>
+
+</mat-card>

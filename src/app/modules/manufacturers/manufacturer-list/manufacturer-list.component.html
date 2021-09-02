@@ -1,0 +1,21 @@
+<div class="container">
+
+    <mat-card 
+        *ngFor="let m of manufacturers$  | async"
+        (click)="manufacturerClick(m.manufacturerID)"
+    >
+
+        <mat-card-title>{{m.name}}</mat-card-title>
+
+        <img 
+            *ngIf="m.logoURL" 
+            [src]="m.logoURL"  
+            mat-card-lg-image
+        >
+
+    </mat-card>
+
+
+</div>
+
+

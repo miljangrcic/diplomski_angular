@@ -1,0 +1,16 @@
+export interface ProductFullDto {
+    productID : number,
+    name: string,
+    eanCode: string,
+    imageURL: string,
+    description: string,
+    price: number,
+    categoryID: number,
+    category: string,
+    manufacturerID: number,
+    manufacturer: string,
+    volumeID: number,
+    volume: string,
+    packagingMaterialID: number,
+    packagingMaterial: string,
+}

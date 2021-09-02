@@ -1,0 +1,94 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+
+    <mat-form-field>
+        <mat-label>Naziv</mat-label>
+        <input type="text" formControlName="name" matInput>
+        <mat-error *ngIf="name.hasError('required')">Naziv je obavezan</mat-error>
+        <mat-error *ngIf="name.hasError('maxlength')">Naziv ne sme biti duzi od 50 karaktera</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>EAN Kod</mat-label>
+        <input type="text" formControlName="eanCode" matInput>
+        <mat-error *ngIf="eanCode.hasError('maxlength')">EAN kod ne sme biti duzi od 13 karaktera</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>Opis</mat-label>
+        <textarea matInput formControlName="description" cols="30" rows="10"></textarea>
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>Cena</mat-label>
+        <input type="number" formControlName="price" matInput>
+        <mat-error *ngIf="price.hasError('required')">Cena je obavezna</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>Kategorija</mat-label>
+        <mat-select formControlName="categoryID">
+            <mat-option *ngFor="let c of categories | async" [value]="c.categoryID">
+                {{c.name}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="categoryID.hasError('required')">Kategorija je obavezna</mat-error>
+    </mat-form-field>
+
+
+    <mat-label>Slika</mat-label>
+    <app-image-uploader 
+        [imagePreviewURL]="productImageURL" 
+        (newImageChosen)="setNewProductImage($event)"
+    >
+    </app-image-uploader>
+
+
+    <mat-form-field>
+        <mat-label>Proizvođač</mat-label>
+        <mat-select formControlName="manufacturerID">
+            <mat-option *ngFor="let m of manufacturers | async" [value]="m.manufacturerID">
+                {{m.name}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="manufacturerID.hasError('required')">Proizvođač je obavezan</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>Zapremina</mat-label>
+        <mat-select formControlName="volumeID">
+            <mat-option *ngFor="let v of volumes | async" [value]="v.volumeID">
+                {{v.amount}}   
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="volumeID.hasError('required')">Zapremina je obavezna</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>Ambalaža</mat-label>
+        <mat-select formControlName="packagingMaterialID">
+            <mat-option *ngFor="let p of packagingMaterials | async" [value]="p.packagingMaterialID">
+                {{p.name}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="packagingMaterialID.hasError('required')">Ambalaža je obavezna</mat-error>
+    </mat-form-field>
+
+
+    <button 
+        mat-button
+        [disabled]="productForm.invalid"
+    >Potvrdi</button>
+
+    <button 
+        (click)="backToProductList()"
+        type="button" 
+        mat-button class="danger-button">Otkaži
+    </button>
+    
+</form>

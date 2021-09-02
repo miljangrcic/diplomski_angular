@@ -1,0 +1,24 @@
+<mat-menu #menu>
+
+    <ng-container *ngFor="let item of menuItems">
+        
+        <button 
+            *ngIf="item.subitems.length == 0; 
+            else subitems" 
+            mat-menu-item 
+            [routerLink]="['proizvodi']" 
+            [queryParams]="{kategorija: item.queryParamValue}">
+            {{item.displayValue}}
+        </button>
+
+
+        <ng-template #subitems>
+            <button mat-menu-item [matMenuTriggerFor]="subItemsPanel.menu">{{item.displayValue}}</button>
+            <app-nested-categories-menu [menuItems]="item.subitems" #subItemsPanel></app-nested-categories-menu>
+        </ng-template>
+
+
+    </ng-container>
+
+
+</mat-menu>

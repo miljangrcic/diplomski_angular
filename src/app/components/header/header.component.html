@@ -1,0 +1,51 @@
+<mat-toolbar>
+
+    <button 
+        routerLink="dobrodosli" 
+        routerLinkActive="active"
+        mat-button>
+        Početna
+    </button>
+
+
+    <button 
+        [matMenuTriggerFor]="menu.menu"
+        mat-button>
+        Proizvodi
+    </button>
+
+    <app-nested-categories-menu 
+        #menu 
+        [menuItems]="categoryMenuItems">
+    </app-nested-categories-menu>
+
+
+    <button 
+        routerLink="proizvodjaci"
+        routerLinkActive="active"
+        mat-button>
+        Proizvođači
+    </button>
+
+
+    <button 
+        *ngIf="!(isLoggedIn$ | async);else adminMenu"
+        routerLink="login" 
+        routerLinkActive="active"
+        mat-button
+        class="pull-right">
+        Login
+    </button>
+
+
+    <ng-template #adminMenu>
+        <app-admin-menu
+            (logoutClick)="onLogoutClick()"
+            (dashboardClick)="onDashboardClick()"
+            class="pull-right"
+        >
+        </app-admin-menu>
+    </ng-template>
+
+
+</mat-toolbar>

@@ -1,0 +1,20 @@
+form > * {
+    margin: 5px;
+}
+
+form {
+    max-width: 1000px;
+    display: block;
+    margin: 0 auto;
+}
+
+mat-form-field, mat-label {
+    display: block;
+}
+
+img {
+    height: 200px;
+}
+
+
+

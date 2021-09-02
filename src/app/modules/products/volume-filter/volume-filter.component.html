@@ -1,0 +1,14 @@
+<ul class="unstyled-ul">
+
+    <li *ngFor="let volume of volumes">
+
+        <mat-checkbox 
+            (change)="onCheckboxChange($event.checked, volume.amount.toString())"
+            [checked]="this.selectedVolumes.includes(volume.amount.toString())"
+        >
+            {{volume.amount}} 
+        </mat-checkbox>
+
+    </li>
+
+</ul>

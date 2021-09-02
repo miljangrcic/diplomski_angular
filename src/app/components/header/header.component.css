@@ -1,0 +1,19 @@
+mat-toolbar {
+    background-color:whitesmoke;
+    color:#111111;
+}
+
+button {
+    text-transform: uppercase;
+    border-radius: 0;
+    margin-right: 2px;
+    height: 100%;
+}
+
+.active {
+    background-color: white;
+}
+
+.pull-right {
+    margin-left: auto;
+}

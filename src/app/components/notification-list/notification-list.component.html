@@ -1,0 +1,16 @@
+<ul>
+    <li *ngFor="let n of notifications" [ngClass]="{'success': n.isSuccess(), 'info': n.isInfo(), 'warning': n.isError()}">
+
+        <button 
+            *ngIf="n.isError()" 
+            (click)="removeNotification(n)"
+            mat-button>
+                <mat-icon>close</mat-icon>
+        </button>
+
+        <span id="message">{{n.message}}</span>
+
+        <span id="time">Vreme: {{n.time | date : 'H:mm'}}</span>
+
+    </li>
+</ul>

@@ -1,0 +1,38 @@
+
+
+<mat-accordion multi displayMode="flat" *ngIf="filtersData">
+
+    <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>Proizvođač</mat-expansion-panel-header>
+        <app-manufacturer-filter
+            [manufacturers]="filtersData[0]"
+            (selectedManufacturersChange)="onSelectedManufacturersChange($event)"
+        >
+        </app-manufacturer-filter>
+    </mat-expansion-panel>
+
+
+    <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>Zapremina</mat-expansion-panel-header>
+        <app-volume-filter 
+            [volumes]="filtersData[1]"
+            (selectedVolumesChange)="onSelectedVolumesChange($event)"
+        >
+            
+        </app-volume-filter>
+    </mat-expansion-panel>
+
+
+    <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>Ambalaža</mat-expansion-panel-header>
+        <app-package-material-filter
+            [packagingMaterials]="filtersData[2]"
+            (selectedPackagingMaterialsChange)="onSelectedPackagingMaterialsChange($event)"
+        
+        ></app-package-material-filter>
+    </mat-expansion-panel>
+
+
+
+</mat-accordion>
+

@@ -1,0 +1,10 @@
+<button mat-button [matMenuTriggerFor]="adminMenu">
+    <mat-icon>settings</mat-icon>
+</button>
+
+<mat-menu #adminMenu="matMenu">
+    <button mat-menu-item (click)="dashboardClick.emit()">Dashboard</button>
+    <button mat-menu-item (click)="logoutClick.emit()">Logout</button>
+</mat-menu>
+
+

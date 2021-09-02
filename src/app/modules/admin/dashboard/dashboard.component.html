@@ -1,0 +1,28 @@
+<mat-drawer-container>
+
+
+    <mat-drawer #drawer>
+
+        <button mat-button [routerLink]="['./', 'proizvodjaci']">
+            <mat-icon>settings</mat-icon>Proizvođači
+        </button>
+
+        <button mat-button [routerLink]="['./', 'proizvodi']">
+            <mat-icon>settings</mat-icon>Proizvodi
+        </button>
+
+    </mat-drawer>
+
+
+    <mat-drawer-content>
+
+        <button mat-flat-button (click)="drawer.toggle()" class="neutral-button">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <router-outlet></router-outlet>
+
+    </mat-drawer-content>
+
+    
+</mat-drawer-container>

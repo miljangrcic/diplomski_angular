@@ -1,0 +1,13 @@
+table {
+    width: 100%;
+}
+img {
+    height: 100px;
+}
+#add-button {
+    margin: 5px !important;
+}
+
+.neutral-outlined-button {
+    margin-right: 5px;
+}

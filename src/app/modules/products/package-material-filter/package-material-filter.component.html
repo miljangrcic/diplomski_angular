@@ -1,0 +1,14 @@
+<ul class="unstyled-ul">
+
+    <li *ngFor="let packagingMaterial of packagingMaterials">
+
+        <mat-checkbox 
+            (change)="onCheckboxChange($event.checked, packagingMaterial.name)"
+            [checked]="selectedPackagingMaterials.includes(packagingMaterial.name)"
+            >
+                {{packagingMaterial.name}}
+            </mat-checkbox>
+
+    </li>
+    
+</ul>

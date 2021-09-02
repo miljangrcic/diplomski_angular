@@ -1,0 +1,19 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+    margin: 10px;
+}
+
+
+mat-card > * {
+    display: block;
+    margin: 5px auto;
+    text-align: center;
+}
+
+
+mat-card:hover {
+    box-shadow: 0 0 3px black;
+    cursor: pointer;
+}

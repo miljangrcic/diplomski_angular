@@ -1,0 +1,39 @@
+<button id="add-button" class="success-button" mat-fab [routerLink]="['./', 'dodaj']"><mat-icon>add</mat-icon></button>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.productID}} </td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Naziv </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef> Logo </th>
+      <td mat-cell *matCellDef="let element">
+        <img [src]="element.imageURL" alt=""> 
+      </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="actions" class="actions">
+        <th mat-header-cell *matHeaderCellDef> Akcija </th>
+        <td mat-cell *matCellDef="let element">
+            <button class="neutral-outlined-button" mat-button [routerLink]="['./', element.productID]">Izmeni</button>
+            <button class="danger-button" mat-button (click)="deleteProduct(element.productID)">Obriši</button>
+        </td>
+      </ng-container>
+
+  
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  

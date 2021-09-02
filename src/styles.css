@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.success-button {
+    background-color: #4BB543 !important;
+    color: white !important;
+}
+
+.neutral-outlined-button {
+    color: #2196F3 !important;
+    border: 1px solid #2196F3 !important;
+}
+
+.neutral-button {
+    background-color: #2196F3 !important;
+    color: white !important;
+}
+
+.danger-button {
+    color: red !important;
+    border: 1px solid darkgrey !important;
+}
+
+.unstyled-ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}

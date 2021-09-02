@@ -1,0 +1,45 @@
+<a class="neutral-button" mat-button [routerLink]="['../']">
+    <mat-icon>arrow_back</mat-icon>Nazad na listu proizvođača
+</a>
+
+<mat-card *ngIf="manufacturer$ | async as manufacturer">
+
+    <img id="banner" *ngIf="manufacturer.bannerURL" [src]="manufacturer.bannerURL">
+    <img mat-card-lg-image id="logo" *ngIf="manufacturer.logoURL" [src]="manufacturer.logoURL">
+
+    <mat-card-title class="main-heading">{{manufacturer.name}}</mat-card-title>
+
+    <mat-card-actions>
+
+        <a routerLink="/proizvodi" [queryParams]="{'proizvodjac': manufacturer.name}" class="success-button" mat-button>
+            <mat-icon>search</mat-icon>Vidi proizvode
+        </a>
+
+        <a href="mailto:{{manufacturer.email}}"class="neutral-button" mat-button>
+            <mat-icon>send</mat-icon>Pošalji email
+        </a>
+
+
+        <a [href]="manufacturer.website" target="_blank"class="danger-button" mat-button>
+            <mat-icon>language</mat-icon>Poseti sajt
+        </a>
+    </mat-card-actions>
+
+    <mat-card-content>
+        <div *ngIf="manufacturer.description" class="description">
+            <h2>Opis</h2>
+            <div class="dynamic-content" [innerHTML]="manufacturer.description"></div>
+        </div>
+        <div class="contact">
+            <h2>Kontakt informacije</h2>
+            <ul>
+                <li><mat-icon>place</mat-icon>{{manufacturer.address}}</li>
+                <li><mat-icon>phone</mat-icon>{{manufacturer.phone}}</li>
+                <li><mat-icon>email</mat-icon>{{manufacturer.email}}</li>
+                <li *ngIf="manufacturer.fax"><mat-icon>print</mat-icon>{{manufacturer.fax}}</li>
+                <li *ngIf="manufacturer.website"><mat-icon>language</mat-icon>{{manufacturer.website}}</li>
+            </ul>
+        </div>
+    </mat-card-content>
+
+</mat-card>

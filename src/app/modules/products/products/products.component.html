@@ -1,0 +1,15 @@
+<app-name-filter 
+    (inputChanged)="handleFilterChange($event)">
+</app-name-filter>
+
+
+<app-product-side-filters 
+    [filtersData]="sideFiltersData$ | async" 
+    (sideFiltersChange)="handleFilterChange($event)">
+</app-product-side-filters>
+
+
+<app-product-list 
+    [products]="products$ | async" 
+    (productClick)="onProductClick($event)">
+</app-product-list>

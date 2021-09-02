@@ -1,0 +1,19 @@
+#image-preview, #select-btn, #error-message {
+    margin: 5px;
+}
+
+#file-input {
+    display: none;
+}
+
+#image-preview {
+    height: 200px;
+    max-width: 100%;
+}
+
+#select-btn { 
+    display: block;
+}
+#error-message {
+    color: red;
+}

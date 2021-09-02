@@ -1,0 +1,63 @@
+.neutral-button {
+    margin: 10px;
+}
+mat-card {
+    max-width: 1000px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+}
+
+#banner {
+    width: 100%;
+}
+
+#logo {
+    margin: 0 auto;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    box-shadow: 0 0 3px grey;
+    background-color: whitesmoke;
+}
+mat-card-actions {
+    padding: 0;
+}
+mat-card-actions > * {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+}
+
+mat-card-actions > mat-button {
+    text-align: left;
+}
+
+mat-card-title {
+    margin: 10px 0 !important;
+}
+
+.contact > ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+.contact mat-icon {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.5em;
+}
+
+@media screen and (max-width: 800px){
+    .contact mat-icon { 
+        margin-right: 5px;
+        display: inline;
+        vertical-align: middle;
+    }
+    .contact > ul {display: block}
+    .contact > ul > li {
+        display: block !important;
+        margin: 5px;
+    }
+}
